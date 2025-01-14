@@ -58,3 +58,37 @@ prevBtn.addEventListener('click', () => {
         updateCarousel();
     }
 });
+
+
+
+const carousel = document.querySelector('.carousel');
+const prevBtn2 = document.querySelector('.prev-btn');
+const nextBtn2 = document.querySelector('.next-btn');
+
+let scrollAmount = 0;
+
+// Next Button Event
+nextBtn2.addEventListener('click', () => {
+  const scrollWidth = carousel.scrollWidth / 4 ;
+  scrollAmount += scrollWidth;
+  if (scrollAmount >= carousel.scrollWidth) {
+    scrollAmount = 0;
+  }
+  carousel.scrollTo({
+    left: scrollAmount,
+    behavior: 'smooth',
+  });
+});
+
+// Previous Button Event
+prevBtn2.addEventListener('click', () => {
+  const scrollWidth = carousel.scrollWidth / 4;
+  scrollAmount -= scrollWidth;
+  if (scrollAmount < 0) {
+    scrollAmount = carousel.scrollWidth - scrollWidth;
+  }
+  carousel.scrollTo({
+    left: scrollAmount,
+    behavior: 'smooth',
+  });
+});

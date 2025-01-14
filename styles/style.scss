@@ -32,12 +32,12 @@ body {
         text-align: start;
         background-color: antiquewhite;
     }
-
     .panto_header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        margin: 0 auto;
         padding: 40px 80px;
         display: flex;
         align-items: center;
@@ -561,6 +561,7 @@ body {
             display: none;
         }
     }
+
 }
 
 .Choosing {
@@ -693,6 +694,156 @@ body {
             text-underline-position: from-font;
             text-decoration-skip-ink: none;
             color: #1E1E1E;
+        }
+    }
+
+    &_filter {
+        width: auto;
+        padding: 6px;
+        border-radius: 44px;
+        background-color: #EEEEEE;
+
+        button {
+            border: none;
+            background-color: #EEEEEE;
+            padding: 7px 19.5px;
+            border-radius: 32px;
+            font-family: 'Gilroy-Medium';
+            font-size: 18px;
+            line-height: 33.3px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: #1E1E1E;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                background-color: rgb(223, 222, 222);
+            }
+        }
+
+        .active {
+            background-color: #FFFFFF;
+        }
+    }
+
+    .carousel-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px auto;
+        width: 95%;
+        max-width: 1200px;
+        position: relative;
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            width: 100%;
+            height: auto;
+            padding: 50px 0;
+            background-color: #F7F7F7;
+            border-radius: 10px;
+            gap: 20px;
+
+            .carousel-item {
+                position: relative;
+                min-width: 24%;
+                box-sizing: border-box;
+                text-align: center;
+                background-color: aquamarine;
+                border-radius: 10px;
+
+                img {
+                    position: absolute;
+                    top: -40px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 220px;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+
+                .product_text {
+                    width: 100%;
+                    margin-top: 220px;
+                    background-color: #d7d6d6;
+                    padding: 8px 20px 20px 20px;
+
+                    p {
+                        font-family: 'Inter';
+                        font-size: 16.76px;
+                        font-weight: 400;
+                        line-height: 20.28px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #8D8D8D;
+                    }
+
+                    h3 {
+                        font-family: 'Inter';
+                        font-size: 21.33px;
+                        font-weight: 600;
+                        line-height: 25.81px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                    }
+                    .star {
+                        position: absolute;
+                        bottom: -200%;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        width: 20px;
+                    }
+                }
+
+
+
+                .price {
+                    font-weight: bold;
+                    margin: 10px 0;
+                }
+
+                .add-btn {
+                    background-color: #0033cc;
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .carousel-btn {
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+
+            &.prev-btn {
+                left: -20px;
+            }
+
+            &.next-btn {
+                right: -20px;
+            }
         }
     }
 }
