@@ -31,3 +31,30 @@ function closeMenu() {
     document.querySelector('.navbar__mobile__menu').style.display = 'none';
 }
 
+
+
+
+const wrapper = document.querySelector('.carousel__wrapper');
+const cards = document.querySelectorAll('.carousel__card');
+const prevBtn = document.querySelector('.carousel__btn--prev');
+const nextBtn = document.querySelector('.carousel__btn--next');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    wrapper.style.transform = `translateX(-${currentIndex * (cards[0].offsetWidth + 35)}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        updateCarousel();
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+});
