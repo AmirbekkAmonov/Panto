@@ -185,3 +185,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+const burgerButton = document.querySelector('.panto_burger');
+const closeButton = document.querySelector('.close-btn');
+const body = document.querySelector('body');
+const links = document.querySelectorAll('.navbar__mobile__menu a'); 
+
+burgerButton.addEventListener('click', () => {
+  body.style.overflow = 'hidden'; 
+  document.querySelector('.navbar__mobile__menu').style.display = 'block'; 
+});
+
+closeButton.addEventListener('click', () => {
+  closeMenu(); 
+});
+
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    closeMenu(); 
+  });
+});
+
+function closeMenu() {
+  body.style.overflow = 'auto'; 
+  document.querySelector('.navbar__mobile__menu').style.display = 'none'; 
+}
