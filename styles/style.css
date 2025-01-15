@@ -38,6 +38,11 @@ body {
   height: 1080px;
   position: relative;
 }
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+}
 .hero .container {
   background-image: url("../assets/images/Panto_img.png");
   background-size: cover;
@@ -219,7 +224,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Gilroy-Bold";
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21.09px;
   text-underline-position: from-font;
   -webkit-text-decoration-skip-ink: none;
@@ -401,6 +406,11 @@ body {
   background: rgba(255, 255, 255, 0.2);
   outline: none;
 }
+@media (max-width: 768px) {
+  .hero_text form .search input {
+    background: rgba(255, 255, 255, 0.5882352941);
+  }
+}
 .hero_text form .search input::-moz-placeholder {
   font-family: "Gilroy-Regular";
   font-size: 18px;
@@ -419,6 +429,14 @@ body {
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
   color: rgba(255, 255, 255, 0.6431372549);
+}
+@media (max-width: 768px) {
+  .hero_text form .search input::-moz-placeholder {
+    color: #ffffff;
+  }
+  .hero_text form .search input::placeholder {
+    color: #ffffff;
+  }
 }
 .hero_text form .search span {
   display: flex;
@@ -680,7 +698,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
 }
 @media (max-width: 980px) {
   .product .container {
@@ -697,7 +715,23 @@ body {
           text-decoration-skip-ink: none;
   color: #1E1E1E;
 }
+.product .container a {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: "Gilroy-Medium";
+  font-size: 14px;
+  line-height: 25.9px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #E58411;
+}
 .product_filter {
+  margin: 20px 0;
   width: auto;
   padding: 6px;
   border-radius: 44px;
@@ -750,7 +784,7 @@ body {
   min-width: 24%;
   box-sizing: border-box;
   text-align: center;
-  background-color: aquamarine;
+  background-color: #FAFAFA;
   border-radius: 10px;
 }
 .product .carousel-container .carousel .carousel-item img {
@@ -765,8 +799,12 @@ body {
 .product .carousel-container .carousel .carousel-item .product_text {
   width: 100%;
   margin-top: 220px;
-  background-color: #d7d6d6;
+  background-color: #FFFFFF;
   padding: 8px 20px 20px 20px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .product .carousel-container .carousel .carousel-item .product_text p {
   font-family: "Inter";
@@ -789,20 +827,66 @@ body {
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
 }
-.product .carousel-container .carousel .carousel-item .product_text .star {
-  position: absolute;
-  bottom: -200%;
+.product .carousel-container .carousel .carousel-item .product_text .product_price {
   display: flex;
   align-items: center;
-  gap: 5px;
-  width: 20px;
+  justify-content: space-between;
+  margin-top: 12px;
 }
-.product .carousel-container .carousel .carousel-item .price {
-  font-weight: bold;
-  margin: 10px 0;
+.product .carousel-container .carousel .carousel-item .product_text .product_price .price {
+  display: flex;
+  align-items: start;
+  gap: 3px;
+  font-family: "Inter";
+  font-size: 21.33px;
+  font-weight: 600;
+  line-height: 25.81px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #0D1B39;
 }
-.product .carousel-container .carousel .carousel-item .add-btn {
-  background-color: #0033cc;
+.product .carousel-container .carousel .carousel-item .product_text .product_price .price span {
+  font-family: "Inter";
+  font-size: 15.23px;
+  font-weight: 600;
+  line-height: 18.43px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #0D1B39;
+}
+.product .carousel-container .carousel .carousel-item .product_text .product_price .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.product .carousel-container .carousel .carousel-item .product_text .product_price .button .subtract-btn {
+  background-color: #dd3b17;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.product .carousel-container .carousel .carousel-item .product_text .product_price .button .count-display {
+  font-family: "Inter";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25.81px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #0D1B39;
+}
+.product .carousel-container .carousel .carousel-item .product_text .product_price .button .add-btn {
+  background-color: #0D1B39;
   color: white;
   border: none;
   border-radius: 50%;
@@ -812,6 +896,9 @@ body {
   cursor: pointer;
 }
 .product .carousel-container .carousel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border: none;
   border-radius: 50%;
@@ -821,9 +908,13 @@ body {
   height: 40px;
   font-size: 1.5rem;
   position: absolute;
-  top: 50%;
+  top: 47%;
   transform: translateY(-50%);
   z-index: 10;
+  transition: all 0.3s ease-out;
+}
+.product .carousel-container .carousel-btn:hover {
+  background-color: #cecdcc;
 }
 .product .carousel-container .carousel-btn.prev-btn {
   left: -20px;

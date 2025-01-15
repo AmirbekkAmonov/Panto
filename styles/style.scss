@@ -19,7 +19,9 @@ body {
     width: 100%;
     height: 1080px;
     position: relative;
-
+    @media (max-width: 768px) {
+        height: 100vh;
+    }
     .container {
         background-image: url("../assets/images/Panto_img.png");
         background-size: cover;
@@ -32,6 +34,7 @@ body {
         text-align: start;
         background-color: antiquewhite;
     }
+
     .panto_header {
         position: fixed;
         top: 0;
@@ -217,7 +220,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 font-family: "Gilroy-Bold";
-                font-size: 18px;
+                font-size: 16px;
                 line-height: 21.09px;
                 text-underline-position: from-font;
                 text-decoration-skip-ink: none;
@@ -397,6 +400,9 @@ body {
                     border: 0.86px solid #FFFFFF99;
                     background: #FFFFFF33;
                     outline: none;
+                    @media (max-width: 768px) {
+                        background: #ffffff96;
+                    }
 
                     &::placeholder {
                         font-family: 'Gilroy-Regular';
@@ -406,6 +412,9 @@ body {
                         text-underline-position: from-font;
                         text-decoration-skip-ink: none;
                         color: #ffffffa4;
+                        @media (max-width: 768px) {
+                            color: #ffffff;
+                        }
                     }
                 }
 
@@ -680,7 +689,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 10px;
 
         @media (max-width: 980px) {
             padding: 50px 100px;
@@ -695,9 +704,25 @@ body {
             text-decoration-skip-ink: none;
             color: #1E1E1E;
         }
+        a {
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: 'Gilroy-Medium';
+            font-size: 14px;
+            line-height: 25.9px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: #E58411;
+        }
     }
+    
 
     &_filter {
+        margin: 20px 0;
         width: auto;
         padding: 6px;
         border-radius: 44px;
@@ -753,7 +778,7 @@ body {
                 min-width: 24%;
                 box-sizing: border-box;
                 text-align: center;
-                background-color: aquamarine;
+                background-color: #FAFAFA;
                 border-radius: 10px;
 
                 img {
@@ -764,13 +789,18 @@ body {
                     width: 220px;
                     height: auto;
                     margin-bottom: 15px;
+
                 }
 
                 .product_text {
                     width: 100%;
                     margin-top: 220px;
-                    background-color: #d7d6d6;
+                    background-color: #FFFFFF;
                     padding: 8px 20px 20px 20px;
+                    border-radius: 0 0 10px 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
 
                     p {
                         font-family: 'Inter';
@@ -793,37 +823,85 @@ body {
                         text-decoration-skip-ink: none;
 
                     }
-                    .star {
-                        position: absolute;
-                        bottom: -200%;
+
+                    .product_price {
                         display: flex;
                         align-items: center;
-                        gap: 5px;
-                        width: 20px;
+                        justify-content: space-between;
+                        margin-top: 12px;
+
+                        .price {
+                            display: flex;
+                            align-items: start;
+                            gap: 3px;
+                            font-family: 'Inter';
+                            font-size: 21.33px;
+                            font-weight: 600;
+                            line-height: 25.81px;
+                            text-align: left;
+                            text-underline-position: from-font;
+                            text-decoration-skip-ink: none;
+                            color: #0D1B39;
+
+                            span {
+                                font-family: 'Inter';
+                                font-size: 15.23px;
+                                font-weight: 600;
+                                line-height: 18.43px;
+                                text-align: left;
+                                text-underline-position: from-font;
+                                text-decoration-skip-ink: none;
+                                color: #0D1B39;
+
+                            }
+                        }
+
+                        .button {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            .subtract-btn{
+                                background-color: #dd3b17;
+                                color: white;
+                                border: none;
+                                border-radius: 50%;
+                                width: 40px;
+                                height: 40px;
+                                font-size: 1.8rem;
+                                cursor: pointer;
+                            }
+                            .count-display {
+                                font-family: 'Inter';
+                                font-size: 18px;
+                                font-weight: 600;
+                                line-height: 25.81px;
+                                text-align: left;
+                                text-underline-position: from-font;
+                                text-decoration-skip-ink: none;
+                                color: #0D1B39;
+                            }
+                            .add-btn {
+                                background-color: #0D1B39;
+                                color: white;
+                                border: none;
+                                border-radius: 50%;
+                                width: 40px;
+                                height: 40px;
+                                font-size: 1.5rem;
+                                cursor: pointer;
+                            }
+                        }
                     }
                 }
 
-
-
-                .price {
-                    font-weight: bold;
-                    margin: 10px 0;
-                }
-
-                .add-btn {
-                    background-color: #0033cc;
-                    color: white;
-                    border: none;
-                    border-radius: 50%;
-                    width: 40px;
-                    height: 40px;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                }
             }
         }
 
         .carousel-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: white;
             border: none;
             border-radius: 50%;
@@ -833,9 +911,14 @@ body {
             height: 40px;
             font-size: 1.5rem;
             position: absolute;
-            top: 50%;
+            top: 47%;
             transform: translateY(-50%);
             z-index: 10;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                background-color: #cecdcc;
+            }
 
             &.prev-btn {
                 left: -20px;
@@ -846,6 +929,7 @@ body {
             }
         }
     }
+
 }
 
 .experiences {
