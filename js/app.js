@@ -72,12 +72,29 @@ const nextBtn2 = document.querySelector('.next-btn');
 
 let scrollAmount = 0;
 
-nextBtn2.addEventListener('click', () => {
-    const scrollWidth = carousel.scrollWidth / 4;
-    scrollAmount += scrollWidth;
-    if (scrollAmount >= carousel.scrollWidth) {
-        scrollAmount = 0;
+function getVisibleItems() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 600) {
+        return 1; 
+    } else if (screenWidth <= 850) {
+        return 2; 
+    } else if (screenWidth <= 1100) {
+        return 3;
+    } else {
+        return 4; 
     }
+}
+
+nextBtn2.addEventListener('click', () => {
+    const visibleItems = getVisibleItems();
+    const itemWidth = carousel.scrollWidth / carousel.children.length;
+    const scrollWidth = itemWidth * visibleItems;
+
+    scrollAmount += itemWidth; 
+    if (scrollAmount >= carousel.scrollWidth - scrollWidth) {
+        scrollAmount = 0; 
+    }
+
     carousel.scrollTo({
         left: scrollAmount,
         behavior: 'smooth',
@@ -85,11 +102,23 @@ nextBtn2.addEventListener('click', () => {
 });
 
 prevBtn2.addEventListener('click', () => {
-    const scrollWidth = carousel.scrollWidth / 4;
-    scrollAmount -= scrollWidth;
+    const visibleItems = getVisibleItems();
+    const itemWidth = carousel.scrollWidth / carousel.children.length;
+    const scrollWidth = itemWidth * visibleItems;
+
+    scrollAmount -= itemWidth; 
     if (scrollAmount < 0) {
         scrollAmount = carousel.scrollWidth - scrollWidth;
     }
+
+    carousel.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth',
+    });
+});
+
+window.addEventListener('resize', () => {
+    scrollAmount = 0; 
     carousel.scrollTo({
         left: scrollAmount,
         behavior: 'smooth',
@@ -209,3 +238,26 @@ function closeMenu() {
   body.style.overflow = 'auto'; 
   document.querySelector('.navbar__mobile__menu').style.display = 'none'; 
 }
+
+
+
+
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function () {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+};
+
+scrollToTopBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+
+
