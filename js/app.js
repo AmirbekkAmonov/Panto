@@ -180,9 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.product_filter button');
     const carouselItems = document.querySelectorAll('.carousel-item');
